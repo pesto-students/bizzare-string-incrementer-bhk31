@@ -1,4 +1,4 @@
-function bizarreStringIncrementer() {
+function bizarreStringIncrementer(str) {
 let lastCharacter = str.charCodeAt(str.length - 1);
 
   if (lastCharacter >= 65 && lastCharacter <= 90 ||
@@ -19,7 +19,7 @@ let lastCharacter = str.charCodeAt(str.length - 1);
     for (let i = 0; i < revArray.length; i++) {
       let char = revArray[i];
       if (char.charCodeAt(0) >= 49 && char.charCodeAt(0) <= 57) {
-        arrNum.push(e);
+        arrNum.push(char);
       } else if (char.charCodeAt(0) == 48) {
         hasZero = true;
         break;
@@ -27,11 +27,12 @@ let lastCharacter = str.charCodeAt(str.length - 1);
     }
 
     let increNum = (parseInt(arrNum.join('') + str.charAt(str.length - 1)) + 1)
-    let numLen = increNum.toString(10).length
+    let numLen = increNum.toString(10).length;
+    let end;
     if (hasZero) {
-      var end = numLen
+      end = numLen
     } else {
-      var end = numLen - 1
+      end = numLen - 1
     }
     console.log(str.slice(0, end * (-1)) + increNum)
   }
